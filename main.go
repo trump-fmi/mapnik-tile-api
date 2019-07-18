@@ -45,9 +45,9 @@ func main() {
 		return
 	}
 
-	log.Printf("Socket startup at :%d/tileEndpoints... ", pPort)
+	log.Printf("Socket startup at :%d", pPort)
 	mainRouter := mux.NewRouter()
-	mainRouter.HandleFunc("/tileEndpoints", getTileEndpoints)
+	mainRouter.HandleFunc("/", getTileEndpoints)
 
 	// http timeout 15 s
 	srv := &http.Server{
