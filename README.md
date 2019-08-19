@@ -3,6 +3,7 @@
 Go tool that parses a provided `renderd.conf` and serves the available tile endpoints with a JSON endpoint.
 The JSON response is a list of endpoints, each of them is a object with the string keys `name`, `uri` and `description`.
 The values are exactly the same as the ones written in the provided `renderd.conf`.
+The endpoint cna be found under `/tileEndpoints` using the specified port.
 
 ## Installation
 To build this project yourself you will need a [correctly configured](https://golang.org/doc/install#testing) go setup and run `go get -u github.com/trump-fmi/mapnik-tile-api`.
