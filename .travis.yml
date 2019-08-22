@@ -1,18 +1,19 @@
 ---
 language: go
 
-dist: xenial
+dist: bionic
 
 go:
-  - 1.8
-  - 1.9
-  - "1.10"
   - 1.11
-  - 1.12
-  - tip
+  - 1.x
+  - master
 
 before_install:
   - go get 
 
 install:
   - go build
+
+after_script:
+  # Trigger Docker build of trump-mapnik
+  - "curl -H \"Content-Type: application/json\" --data '{\"docker_tag\": \"latest\"}' -X POST https://cloud.docker.com/api/build/v1/source/5ccfd72a-9190-4add-876e-95ecfd6a1926/trigger/27bd5e1f-b146-4fd9-9571-c48db2abb673/call/"
